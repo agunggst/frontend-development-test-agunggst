@@ -28,7 +28,7 @@ Project ini adalah aplikasi frontend berbasis **Next.js (App Router)** yang dike
 |---------------|-----------------------------------|
 | Framework     | [Next.js 15 (App Router)](https://nextjs.org/) |
 | UI Komponen   | [PrimeReact](https://primereact.org/) |
-| Styling       | [Tailwind CSS](https://tailwindcss.com/), Bootstrap (via script) |
+| Styling       | [Tailwind CSS](https://tailwindcss.com/) |
 | State Global  | [Zustand](https://zustand.pmnd.rs/) |
 | HTTP Client   | [Axios](https://axios-http.com/) |
 | Icon          | [React Icons](https://react-icons.github.io/react-icons/) |
