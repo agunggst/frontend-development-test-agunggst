@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 // import BootstrapScript from './components/BootstrapScript'
+import { PrimeReactProvider } from 'primereact/api';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -24,8 +25,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} antialiased`}
       >
-        {/* <BootstrapScript /> */}
-        {children}
+        <PrimeReactProvider value={{ unstyled: true }}>
+          {/* <BootstrapScript /> */}
+          {children}
+        </PrimeReactProvider>
       </body>
     </html>
   );
