@@ -61,19 +61,6 @@ Buka browser dan akses `http://localhost:3000`.
 
 ---
 
-<!-- ## ✨ Fitur Utama
-
-* 🔐 Validasi form login
-* 📄 Tabel komentar menggunakan **PrimeReact DataTable**
-* 🔎 Fitur pencarian nama/email
-* 🗑️ Hapus komentar (lokal)
-* 🆕 Tambah komentar melalui form (validasi email & required)
-* 📱 Desain responsif (Tailwind)
-* ⚙️ State global dengan **Zustand**
-* 🔁 Pagination custom (bisa kontrol dari luar)
-
---- -->
-
 ## 📌 Catatan
 
 * Login **tidak terhubung ke backend**, hanya simulasi validasi lokal.
