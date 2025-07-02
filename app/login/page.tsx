@@ -1,5 +1,7 @@
 'use client'
 import useEmailValidation from "@/hooks/useEmailValidation"
+import { useUserStore } from "@/store/UserStore"
+import { useRouter } from "next/navigation"
 import { FormEvent, useState } from "react"
 import { FaComments, FaEye, FaEyeSlash } from "react-icons/fa"
 
@@ -9,6 +11,8 @@ export default function LoginPage () {
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false)
   const [isRemember, setIsRemember] = useState<boolean>(false)
   const [isPasswordError, setIsPasswordError] = useState<boolean>(false)
+  const { updateEmailStore } = useUserStore()
+  const router = useRouter()
 
   const formValidation = () => {
     const emailValid = forceValidate()
@@ -29,7 +33,10 @@ export default function LoginPage () {
   }
 
   const login = () => {
-    
+    updateEmailStore(email)
+    if (isRemember) {
+      localStorage.setItem('email', email)
+    }
   }
 
   const handleForm = (e: FormEvent) => {
@@ -38,9 +45,13 @@ export default function LoginPage () {
     const isValid = formValidation()
     if (!isValid) return
 
+    login()
+
     setIsPasswordError(false)
     resetEmailValidation()
     setPassword('')
+
+    router.push('/dashboard')
   }
 
   return (

@@ -6,7 +6,7 @@ interface CommentState {
   updateComment: (newValue: Comment[]) => void
 }
 
-export const useUserStore = create<CommentState>((set, get) => ({
+export const useCommentStore = create<CommentState>((set, get) => ({
   comments: [],
   updateComment: (newValue) => set({ comments: newValue })
 }))
