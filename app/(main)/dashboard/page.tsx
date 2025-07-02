@@ -23,26 +23,26 @@ export default function DashboardPage () {
   return (
     <div className="mb-8">
       <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-      <div className="text-center md:text-left mb-4 md:mb-0">
-        <h1 className="text-2xl font-bold text-neutral-900 mb-1">
-          Comments Dashboard
-        </h1>
-        <p className="text-neutral-600 font-semibold text-sm">
-          Manage and view all user comments
-        </p>
+        <div className="text-center md:text-left mb-4 md:mb-0">
+          <h1 className="text-2xl font-bold text-neutral-900 mb-1">
+            Comments Dashboard
+          </h1>
+          <p className="text-neutral-600 font-semibold text-sm">
+            Manage and view all user comments
+          </p>
+        </div>
+        <Link href={'/dashboard/create-comment'} className="w-full md:w-auto">
+          <button
+            type="button"
+            className="bg-neutral-800 text-white font-semibold px-4 py-2 rounded-md hover:bg-neutral-700 flex items-center justify-center w-full md:w-auto cursor-pointer" // justify-center untuk mobile
+          >
+            <FaPlus className="mr-2" />
+            Create Comment
+          </button>
+        </Link>
       </div>
-      <Link href={'/dashboard/create-comment'} className="w-full md:w-auto">
-        <button
-          type="button"
-          className="bg-neutral-800 text-white font-semibold px-4 py-2 rounded-md hover:bg-neutral-700 flex items-center justify-center w-full md:w-auto cursor-pointer" // justify-center untuk mobile
-        >
-          <FaPlus className="mr-2" />
-          Create Comment
-        </button>
-      </Link>
-    </div>
       <div className="mb-6">
-        <InputSearch placeholder="Search by comment's name..." triggerSearch={searchComment} />
+        <InputSearch placeholder="Search comment's name... then press enter" triggerSearch={searchComment} />
       </div>
       {
         !isLoading && 
