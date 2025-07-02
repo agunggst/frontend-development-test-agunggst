@@ -1,10 +1,10 @@
-'use client'
-import { useEffect } from 'react'
+// 'use client'
+// import { useEffect } from 'react'
 
-export default function BootstrapScript() {
-  useEffect(() => {
-    import('bootstrap/dist/js/bootstrap.bundle.min')
-  }, [])
+// export default function BootstrapScript() {
+//   useEffect(() => {
+//     import('bootstrap/dist/js/bootstrap.bundle.min')
+//   }, [])
 
-  return null
-}
+//   return null
+// }
