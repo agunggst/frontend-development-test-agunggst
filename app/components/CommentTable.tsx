@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { DataTable } from 'primereact/datatable'
 import { Column } from 'primereact/column'
 import { FaTrash } from 'react-icons/fa'
@@ -18,6 +18,9 @@ export default function CommentTable({ comments }: CommentTableProps) {
 
   const paginatedComments = comments.slice(first, first + rows)
 
+  useEffect(() => {
+    setFirst(0)
+  }, [comments])
 
   const handleDelete = (id: number) => {
     updateComment(comments.filter(comment => comment.id !== id))

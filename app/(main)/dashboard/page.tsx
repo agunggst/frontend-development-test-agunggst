@@ -1,13 +1,14 @@
 'use client'
 import Link from "next/link";
 import { FaPlus } from "react-icons/fa";
-import { FaMagnifyingGlass } from "react-icons/fa6";
 import CommentTable from "@/app/components/CommentTable";
 import { useCommentStore } from "@/store/CommentStore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import InputSearch from "@/app/components/InputSearch";
 
 export default function DashboardPage () {
   const { comments, fetchComments, isLoading, isFetched } = useCommentStore()
+  const [searchCommentText, setSearchCommentText] = useState<string>()
 
   useEffect(() => {
     if (!isFetched) {
@@ -15,10 +16,14 @@ export default function DashboardPage () {
     }
   }, [])
 
+  const searchComment = (input: string) => {
+    setSearchCommentText(input)
+  }
+
   return (
     <div className="mb-8">
       <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-      <div className="text-center md:text-left mb-4 md:mb-0"> {/* Tambahkan text-center untuk mobile */}
+      <div className="text-center md:text-left mb-4 md:mb-0">
         <h1 className="text-2xl font-bold text-neutral-900 mb-1">
           Comments Dashboard
         </h1>
@@ -37,19 +42,13 @@ export default function DashboardPage () {
       </Link>
     </div>
       <div className="mb-6">
-        <div className="relative max-w-md">
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <FaMagnifyingGlass className="text-neutral-400"/>
-          </div>
-          <input 
-            type="text" 
-            className="block w-full pl-10 pr-3 py-2 border font-semibold border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:border-transparent"
-            placeholder="Search comments..."
-          />
-        </div>
+        <InputSearch placeholder="Search by comment's name..." triggerSearch={searchComment} />
       </div>
       {
-        !isLoading && <CommentTable comments={comments} />
+        !isLoading && 
+        <CommentTable 
+          comments={searchCommentText ? comments.filter((comment) => comment.name.includes(searchCommentText)) : comments} 
+        />
       }
     </div>
   )
