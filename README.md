@@ -6,7 +6,7 @@ Project ini adalah aplikasi frontend berbasis **Next.js (App Router)** yang dike
 
 ## Demo
 
-🌐 [Link Deploy (isi nanti setelah deploy)](https://your-deployment-link.vercel.app)
+🌐 [Link Deploy](https://frontend-development-test-agunggst.vercel.app/)
 
 ---
 
